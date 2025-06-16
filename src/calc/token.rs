@@ -33,7 +33,7 @@ impl Token {
             Caret => Power,
             _ => Default,
         }
-    }
+    }//获取字符优先级
 }
 
 impl Display for Token {

@@ -27,7 +27,7 @@ impl <'a> Iterator for Tokenizer<'a> {
     fn next(&mut self) -> Option<Self::Item> {
         if self.reached_eof {
             return None;
-        }
+        }//表达式空出口
         let next_char = self.expression.next();
         match next_char {
             Some(chr) if chr.is_numeric() => {
@@ -37,7 +37,7 @@ impl <'a> Iterator for Tokenizer<'a> {
                     number.push(next);
                 }
                 Some(Token::Number(number.parse().unwrap()))
-            }
+            }//数字
             Some(chr) if chr.is_whitespace() => {
                 while let Some(_) = self.expression
                 .next_if(|c| c.is_whitespace()) {}
@@ -52,11 +52,11 @@ impl <'a> Iterator for Tokenizer<'a> {
             Some(')') => Some(Token::Rparen),
             None => {
                 self.reached_eof = true;
-                Some(Token::Eof)
+                Some(Token::Eof)//表达式结束
             }
             Some(chr) => {
                 self.unexpected_char = Some(chr);
-                Some(Token::Eof)
+                Some(Token::Eof)//未识别字符
             }
         }        
     }
