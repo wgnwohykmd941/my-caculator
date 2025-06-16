@@ -1,0 +1,8 @@
+[package]
+name = "my-caculator"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+rust_decimal = {version = "1.37",features = ["macros","maths"]}
+thiserror = "2.0.12"
