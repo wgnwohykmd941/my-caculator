@@ -11,7 +11,7 @@ pub enum Token  {
     Rparen,//右括号
     Number(Decimal),//数字
     Eof//结束符
-}
+}//词性
 
 #[derive(Debug, PartialEq, PartialOrd, Clone, Copy)]
 pub enum OperatorPrecedence {

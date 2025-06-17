@@ -6,6 +6,8 @@ pub struct  Tokenizer<'a> {
     reached_eof:bool,
     unexpected_char:Option<char>
 }
+//实现分词迭代器
+//将输入字符串迭代为Token
 
 impl <'a> Tokenizer<'a> {
     pub fn new(exp: &'a str) -> Self {
